@@ -9,6 +9,7 @@ function App() {
 
   const [femaleActorsData, setFemaleActorsData] = useState([])
   const [maleActorsData, setMaleActorsData] = useState([])
+  const [AllActorsData, setAllActorsData] = useState([])
 
   const getFemaleActors = () => {
     axios.get(femaleActorsApi)
@@ -33,10 +34,21 @@ function App() {
   }
 
 
+  // SCHIACCIARE DUE VOLTE IL BOTTONE PER FAR APPARIRE LA LISTA, MALEDETTA ASINCRONICITÁ
+  const getAllActors = () => {
+    getFemaleActors()
+    getMaleActors()
+    const sortedActorsData = [...femaleActorsData, ...maleActorsData].sort((a, b) =>
+      a.name.localeCompare(b.name)
+    )
+    setAllActorsData(sortedActorsData)
+  }
+
+
   return (
     <>
       <h1>Cast Fetching</h1>
-      <button onClick={getFemaleActors}>genera attrici</button>
+      {/* <button onClick={getFemaleActors}>genera attrici</button>
       <button onClick={getMaleActors}>genera attori</button>
       <ul>
         {femaleActorsData.map(actor =>
@@ -51,6 +63,17 @@ function App() {
       <ul>
         {maleActorsData.map(actor =>
           <Card key={actor.id}
+            name={actor.name}
+            birth={actor.birth_year}
+            nazionality={actor.nazionality}
+            img={actor.image}
+            bio={actor.biography}
+            awards={actor.awards} />)}
+      </ul> */}
+      <button onClick={getAllActors}>genera tutti gli attori</button>
+      <ul>
+        {AllActorsData.map((actor, index) =>
+          <Card key={index}
             name={actor.name}
             birth={actor.birth_year}
             nazionality={actor.nazionality}
