@@ -45,22 +45,42 @@ body
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    padding: 2rem;
-    background-color: #f9f9f9;
-    color: #333;
+    background-color: #f0f0f0;
+    color: #222;
 }
 
 h1 {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-top: 2rem;
+    font-size: 2rem;
+}
+
+input {
+    display: block;
+    margin: 1rem auto;
+    padding: 0.4rem 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 350px;
+    font-size: 1rem;
 }
 
 button {
     display: block;
-    margin: 0 auto 2rem;
-    padding: 0.5rem 1rem;
+    margin: 1rem auto;
+    padding: 0.4rem 1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #007bff;
+    color: white;
     font-size: 1rem;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
 }
 
 
@@ -71,23 +91,40 @@ card
 ul {
     list-style: none;
     padding: 0;
+    margin: 2rem;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     gap: 1rem;
 }
 
-li {
-    background-color: white;
-    padding: 1rem;
-    border-radius: 12px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 0.6rem;
+    font-size: 0.85rem;
+    text-align: center;
 }
 
-img {
+.card img {
     width: 100%;
-    height: 300px;
+    height: 160px;
     object-fit: cover;
     object-position: top;
-    border-radius: 8px;
-    margin-top: 0.5rem;
+    border-radius: 6px;
+}
+
+.card h2 {
+    font-size: 1rem;
+    margin: 0.4rem 0;
+}
+
+.card p {
+    margin: 0.2rem 0;
+    line-height: 1.2;
+}
+
+.card small {
+    font-size: 0.75rem;
+    color: #777;
 }
