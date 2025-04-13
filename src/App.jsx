@@ -60,6 +60,7 @@ function App() {
           />
         ))}
       </ul>
+      {filteredActors.length === 0 && <div className="no-actors-message">Nessun attore trovato! 😢 </div>}
     </>
   )
 }
